@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Патанатомия — подготовка к сессии</title>
+<meta name="description" content="452 вопроса по патологической анатомии: тренировка, повтор ошибок и сохранение прогресса.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23265449'/%3E%3Ctext x='6' y='24' fill='white' font-size='23'%3EП%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css"><script defer src="questions.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="index.html"><span class="mark">П</span> Патанатомия</a><span class="header-note">ПОДГОТОВКА К СЕССИИ</span></header>
+<main>
+<div class="intro"><p class="eyebrow">ШАГ ЗА ШАГОМ К СЕССИИ</p><h1>Разобраться.<br>Запомнить. Сдать.</h1><p>Вопросы из твоего PDF, небольшими порциями.<br>Отвечай, проверяй себя и возвращайся к ошибкам.</p></div>
+<p id="storage-note" class="notice" hidden>Браузер не разрешает сохранять данные. Текущая тренировка работает, но после закрытия страницы прогресс может потеряться.</p>
+<div class="workspace">
+<aside><p class="eyebrow">ТВОЙ МАТЕРИАЛ</p><h2>Патологическая<br>анатомия</h2><p>452 вопроса с ключами из PDF на 55 страницах.</p><ul class="topics"><li>Общая патанатомия <span>200</span></li><li>Частная патанатомия <span>252</span></li></ul><a class="source-link" href="source.pdf" target="_blank" rel="noopener">Открыть исходный PDF ↗</a><div class="aside-bottom"><span class="small-dot"></span> Без таймера · В своём темпе<p>Ответы проверяются по отметкам в PDF. Ключи источника могут содержать ошибки; два задания с неоднозначным или отсутствующим ключом вынесены отдельно.</p><a href="research-original/index.html">Прежний тест на английском ↗</a></div></aside>
+<section id="setup" class="card setup" aria-labelledby="setup-heading">
+<p class="eyebrow">НАЧНЁМ С МАЛЕНЬКОГО</p><h2 id="setup-heading" tabindex="-1">Твоя следующая тренировка</h2><p class="subtle">Выбери раздел и количество вопросов. Варианты ответов перемешиваются каждый раз.</p>
+<button id="resume" class="resume" hidden></button>
+<form id="settings"><label for="section">Раздел</label><select id="section"><option value="all">Все разделы · 452 вопроса</option value="general">Общая патанатомия · 200 вопросов</option><option value="special">Частная патанатомия · 252 вопроса</option></select>
+<fieldset><legend>Объём тренировки</legend><div class="size-options"><label><input type="radio" name="count" value="20" checked><span>20 <small>вопросов</small></span></label><label><input type="radio" name="count" value="50"><span>50 <small>вопросов</small></span></label><label><input type="radio" name="count" value="all"><span>Все <small>в разделе</small></span></label></div></fieldset>
+<label class="check-label"><input id="random" type="checkbox" checked> Перемешать порядок вопросов</label>
+<button type="submit" class="primary start-button">Начать тренировку <span aria-hidden="true">→</span></button>
+</form>
+<button id="practice-mistakes" class="secondary" disabled>Повторить ошибки · 0</button>
+<p class="save-hint">Прогресс сохраняется в этом браузере автоматически.</p>
+<details class="source-notes"><summary>2 задания без однозначного ключа</summary><p class="subtle">Они доступны для разбора, но не входят в тренировку и оценку.</p><div id="flagged"></div></details>
+</section>
+<section id="quiz" class="card" aria-label="Тренировка" hidden><div class="stats"><span id="position"></span><span id="score"></span></div><progress id="progress" max="20" value="0" aria-label="Отвечено вопросов"></progress><div class="question-body"><p class="eyebrow" id="topic"></p><h2 id="question" tabindex="-1"></h2><p class="hint">Выбери один ответ. Учитывается первая попытка.</p><div id="options" class="options" role="group" aria-labelledby="question"></div><div id="feedback" role="status" aria-live="polite" hidden></div><div class="actions"><button id="menu" class="text-button">← К настройкам</button><button id="next" class="primary" disabled>Далее →</button></div><p class="keyboard-hint">Клавиши 1–6 — ответ · Enter — далее</p></div></section>
+<section id="results" class="card results" hidden aria-label="Результаты"><p class="eyebrow">ТРЕНИРОВКА ЗАВЕРШЕНА</p><h2 tabindex="-1" id="result-heading">Твои результаты</h2><div id="percentage" class="percentage"></div><p id="result-summary"></p><div class="result-actions"><button id="retry" class="primary">Повторить ошибки</button><button id="restart" class="secondary">Новая тренировка</button></div><div id="review"></div></section>
+</div><footer>ПАТАН(СЕССИЯ).pdf · Ответы по ключам источника <span>Работает без интернета · <a href="source.pdf" target="_blank" rel="noopener">Исходный PDF ↗</a></span></footer>
+</main><noscript>Для работы теста включи JavaScript в браузере.</noscript>
+</body></html>
