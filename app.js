@@ -1,6 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const byId = new Map(QUESTIONS.map(q => [q.id, q]));
+const numberById = new Map(QUESTIONS.map((q, index) => [q.id, index + 1]));
 const KEY = 'patan-practice-v1';
 let session = null;
 let mistakes = new Set();
@@ -47,15 +48,18 @@ function paragraph(text, cls = '') {
 function setup(focus = true) {
   show('setup');
   $('resume').hidden = !session || session.complete;
-  if (session) $('resume').textContent = `Продолжить тренировку · отвечено ${session.responses.length} из ${session.deck.length} →`;
+  if (session) {
+    const name = session.name ? `${session.name} · ` : '';
+    $('resume').textContent = `Продолжить: ${name}отвечено ${session.responses.length} из ${session.deck.length} →`;
+  }
   $('practice-mistakes').disabled = !mistakes.size;
   $('practice-mistakes').textContent = `Повторить ошибки · ${mistakes.size}`;
   if (focus) $('setup-heading').focus();
 }
-function start(ids, random = true) {
+function start(ids, random = true, name = '') {
   session = {
     deck: (random ? shuffle(ids) : ids).map(id => ({id, order: shuffle(byId.get(id).options.map((_, i) => i))})),
-    cursor: 0, responses: [], complete: false,
+    cursor: 0, responses: [], complete: false, name,
   };
   save(); render();
 }
@@ -68,7 +72,7 @@ function render(focus = true) {
   $('position').textContent = `Вопрос ${session.cursor + 1} из ${session.deck.length}`;
   $('score').textContent = `Верно: ${score()} · Отвечено: ${session.responses.length}`;
   $('progress').max = session.deck.length; $('progress').value = session.responses.length;
-  $('topic').textContent = `${q.topic} · № ${q.id}`;
+  $('topic').textContent = `${q.topic} · вопрос № ${numberById.get(q.id)}`;
   $('question').textContent = q.question;
   $('options').replaceChildren();
   entry.order.forEach((original, i) => {
@@ -133,13 +137,17 @@ function finish() {
 }
 $('settings').addEventListener('submit', event => {
   event.preventDefault();
-  const section = $('section').value;
-  let ids = QUESTIONS.filter(q => section === 'all' || q.topic.startsWith(section === 'general' ? 'Общая' : 'Частная')).map(q => q.id);
-  const count = document.querySelector('input[name="count"]:checked').value;
+  const selected = $('test').value;
   const random = $('random').checked;
-  if (random) ids = shuffle(ids);
-  if (count !== 'all') ids = ids.slice(0, Number(count));
-  start(ids, false);
+  let questions = QUESTIONS;
+  let name = 'Все вопросы';
+  if (selected !== 'all') {
+    const testNumber = Number(selected);
+    const startIndex = (testNumber - 1) * 50;
+    questions = QUESTIONS.slice(startIndex, startIndex + 50);
+    name = `Тест ${testNumber}`;
+  }
+  start(questions.map(q => q.id), random, name);
 });
 $('resume').addEventListener('click', () => render());
 $('menu').addEventListener('click', () => setup());

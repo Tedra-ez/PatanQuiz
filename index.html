@@ -5,20 +5,19 @@
 <title>Патанатомия — подготовка к сессии</title>
 <meta name="description" content="452 вопроса по патологической анатомии: тренировка, повтор ошибок и сохранение прогресса.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23265449'/%3E%3Ctext x='6' y='24' fill='white' font-size='23'%3EП%3C/text%3E%3C/svg%3E">
-<link rel="stylesheet" href="style.css"><script defer src="questions.js"></script><script defer src="app.js"></script>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="test-selector.css"><script defer src="questions.js"></script><script defer src="app.js"></script>
 </head>
 <body>
 <header><a class="brand" href="index.html"><span class="mark">П</span> Патанатомия</a><span class="header-note">ПОДГОТОВКА К СЕССИИ</span></header>
 <main>
-<div class="intro"><p class="eyebrow">ШАГ ЗА ШАГОМ К СЕССИИ</p><h1>Разобраться.<br>Запомнить. Сдать.</h1><p>Вопросы из твоего PDF, небольшими порциями.<br>Отвечай, проверяй себя и возвращайся к ошибкам.</p></div>
+<div class="intro"><p class="eyebrow">ШАГ ЗА ШАГОМ К СЕССИИ</p><h1>Разобраться.<br>Запомнить. Сдать.</h1><p>10 тестов по 50 вопросов из твоего PDF.<br>Выбирай нужный тест и возвращайся к ошибкам.</p></div>
 <p id="storage-note" class="notice" hidden>Браузер не разрешает сохранять данные. Текущая тренировка работает, но после закрытия страницы прогресс может потеряться.</p>
 <div class="workspace">
-<aside><p class="eyebrow">ТВОЙ МАТЕРИАЛ</p><h2>Патологическая<br>анатомия</h2><p>452 вопроса с ключами из PDF на 55 страницах.</p><ul class="topics"><li>Общая патанатомия <span>200</span></li><li>Частная патанатомия <span>252</span></li></ul><a class="source-link" href="source.pdf" target="_blank" rel="noopener">Открыть исходный PDF ↗</a><div class="aside-bottom"><span class="small-dot"></span> Без таймера · В своём темпе<p>Ответы проверяются по отметкам в PDF. Ключи источника могут содержать ошибки; два задания с неоднозначным или отсутствующим ключом вынесены отдельно.</p><a href="research-original/index.html">Прежний тест на английском ↗</a></div></aside>
+<aside><p class="eyebrow">ТВОЙ МАТЕРИАЛ</p><h2>Патологическая<br>анатомия</h2><p>10 отдельных тестов. Выбирай диапазон вопросов перед началом.</p><ul class="topics"><li>Общая патанатомия <span>200</span></li><li>Частная патанатомия <span>252</span></li></ul><a class="source-link" href="source.pdf" target="_blank" rel="noopener">Открыть исходный PDF ↗</a><div class="aside-bottom"><span class="small-dot"></span> Без таймера · В своём темпе<p>Ответы проверяются по отметкам в PDF. Ключи источника могут содержать ошибки; два задания с неоднозначным или отсутствующим ключом вынесены отдельно.</p><a href="research-original/index.html">Прежний тест на английском ↗</a></div></aside>
 <section id="setup" class="card setup" aria-labelledby="setup-heading">
-<p class="eyebrow">НАЧНЁМ С МАЛЕНЬКОГО</p><h2 id="setup-heading" tabindex="-1">Твоя следующая тренировка</h2><p class="subtle">Выбери раздел и количество вопросов. Варианты ответов перемешиваются каждый раз.</p>
+<p class="eyebrow">НАЧНЁМ С МАЛЕНЬКОГО</p><h2 id="setup-heading" tabindex="-1">Выбери тест</h2><p class="subtle">Материал разделён на тесты по 50 вопросов. В последнем тесте — оставшиеся 2 вопроса.</p>
 <button id="resume" class="resume" hidden></button>
-<form id="settings"><label for="section">Раздел</label><select id="section"><option value="all">Все разделы · 452 вопроса</option value="general">Общая патанатомия · 200 вопросов</option><option value="special">Частная патанатомия · 252 вопроса</option></select>
-<fieldset><legend>Объём тренировки</legend><div class="size-options"><label><input type="radio" name="count" value="20" checked><span>20 <small>вопросов</small></span></label><label><input type="radio" name="count" value="50"><span>50 <small>вопросов</small></span></label><label><input type="radio" name="count" value="all"><span>Все <small>в разделе</small></span></label></div></fieldset>
+<form id="settings"><label for="test">Номер теста</label><select id="test"><option value="1">Тест 1 · вопросы 1–50</option><option value="2">Тест 2 · вопросы 51–100</option><option value="3">Тест 3 · вопросы 101–150</option><option value="4">Тест 4 · вопросы 151–200</option><option value="5">Тест 5 · вопросы 201–250</option><option value="6">Тест 6 · вопросы 251–300</option><option value="7">Тест 7 · вопросы 301–350</option><option value="8">Тест 8 · вопросы 351–400</option><option value="9">Тест 9 · вопросы 401–450</option><option value="10">Тест 10 · вопросы 451–452</option><option value="all">Все вопросы · 1–452</option></select>
 <label class="check-label"><input id="random" type="checkbox" checked> Перемешать порядок вопросов</label>
 <button type="submit" class="primary start-button">Начать тренировку <span aria-hidden="true">→</span></button>
 </form>
